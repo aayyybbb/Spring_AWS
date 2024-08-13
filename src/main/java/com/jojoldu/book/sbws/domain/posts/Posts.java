@@ -1,5 +1,7 @@
 package com.jojoldu.book.sbws.domain.posts;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
+import com.jojoldu.book.sbws.domain.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
