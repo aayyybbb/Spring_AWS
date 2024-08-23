@@ -40,4 +40,12 @@ public class PostsService {
     public List<PostsListResponseDto> findAllDesc() {
         return postsRepository.findAllDesc().stream().map(PostsListResponseDto::new).collect(Collectors.toList());
     }
+
+    @Transactional
+    public Long delete(Long id) {
+        Posts entity = postsRepository.findById(id).orElseThrow(()->new IllegalArgumentException("해당 게시글이 존재하지 않습니다."));
+        postsRepository.delete(entity);
+        //deleteById도 가능
+        return id;
+    }
 }
